@@ -2,11 +2,11 @@ version: '3.5'
 
 x-environment-vars: &environment-vars
   DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
-  ELASTICSEARCH_HOST: elastic:9200
+  # ELASTICSEARCH_HOST: elastic:9200
   REDIS_URL: redis://redis:6379/0
   ADMIN_EMAIL: "@{ADMIN_EMAIL}"
   ADMIN_PASSWORD: "@{ADMIN_PASSWORD}"
-  CELERY_RESULT_BACKEND: redis://redis:6379/0
+  CELERY_RESULT_BACKEND
 
 x-defaults: &defaults
   build: .
