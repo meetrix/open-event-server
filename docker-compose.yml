@@ -16,11 +16,11 @@ x-defaults: &defaults
   depends_on:
     - postgres
     - redis
-#    - elastic
+    - elastic
   links:
     - postgres:postgres
     - redis:redis
-#    - elastic:elastic
+    - elastic:elastic
   volumes:
     - ./static:/data/app/static
 
