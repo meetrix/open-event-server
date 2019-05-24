@@ -13,11 +13,11 @@ then
     python manage.py db upgrade
     export PORT=${PORT:-8080}
     echo "[LOG] Starting gunicorn on port ${PORT}"
-    gunicorn -b 0.0.0.0:${PORT} app:app -w 1 --enable-stdio-inheritance --log-level "warning" --proxy-protocol
+    gunicorn -b 0.0.0.0:${PORT} app:app -w 1 --enable-stdio-inheritance --log-level "debug" --proxy-protocol --preload
 fi
 if [ "$DEPLOYMENT" == "celery" ]
 then
     echo "[LOG] Starting celery worker"
     export INTEGRATE_SOCKETIO=false
-    celery worker -A app.celery --loglevel=warning
+    celery worker -A app.celery --loglevel=debug
 fi
